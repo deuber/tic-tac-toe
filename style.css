@@ -1,15 +1,12 @@
-#board {
-  width: 31em;
-  height: 30em;
-  position: relative;
-  top: 30px;
-  left: 25%;
+#game td {
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    font-size: 170
 }
-
-.box {
-  width: 10em;
-  height: 10em;
-  border: 1px solid black;
-  display: inline-block;
-  margin-bottom: 4px;
+.X {
+  background-color: red;
+}
+.O {
+  background-color: blue;
 }
