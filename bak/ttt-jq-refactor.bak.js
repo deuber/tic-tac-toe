@@ -2,17 +2,20 @@ var turn = 'X';
 
 window.addEventListener("load", function (){
 
+function randomPlay() {
+    var randPos = Math.floor(Math.random() * 9 + 1)
+    return randPos
+}
+
 
 function next() {
     turn = turn === 'X' ? 'O' : 'X';
     return turn; 
 }
 
-
-
 //Set event listeners
 for(var i = 0; i < 9; ++i){
-     var $box = $("#box" + i );
+     var $box = ("#box" + i );  
       $box.on( "click", function() {
         if($(this).html()=='X' || $(this).html() =='O'){
             console.log("Already something here!")
