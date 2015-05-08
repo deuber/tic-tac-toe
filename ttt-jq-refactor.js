@@ -1,7 +1,6 @@
 var player = 'X';
 
-window.addEventListener("load", function (){
-
+$(document).ready(function() {
 
 function next() {
     player = player === 'X' ? 'O' : 'X';
@@ -27,24 +26,24 @@ for(var i = 0; i < 9; ++i){
     })
 }
 
+
+// CLEARS BOXES WHEN CLEAR BOARD IS RUN
 var $boxes = $(".box")
 var $button = $("#clear"); 
 $button.on( "click", function() {
-    for (var i = 0 ; i < 9 ; ++i) {
-        $boxes.eq(i).html('');
-        $boxes.removeClass('X');
-        $boxes.removeClass('O');
-  
-    }
+    $boxes.each(function(index) {
+        $(this).html('');
+        $(this).removeClass();
+    })
 })
 
+//INITS BOXES
 var $boxes = $(".box")
 function reset(){
-    for (var i = 0 ; i < 9 ; ++i) {
-        $boxes.eq(i).html('');
-        $boxes.removeClass('X');
-        $boxes.removeClass('O');   
-    }
+    $boxes.each(function(index) {
+        $(this).html('');
+        $(this).removeClass();
+    })
 }
 
 function winner(){
