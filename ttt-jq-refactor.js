@@ -1,11 +1,11 @@
-var turn = 'X';
+var player = 'X';
 
 window.addEventListener("load", function (){
 
 
 function next() {
-    turn = turn === 'X' ? 'O' : 'X';
-    return turn; 
+    player = player === 'X' ? 'O' : 'X';
+    return player; 
 }
 
 
@@ -18,9 +18,9 @@ for(var i = 0; i < 9; ++i){
             console.log("Already something here!")
         }
         else {
-            var turn = next();
-            $(this).html(turn);
-            $(this).addClass(turn);
+            var player = next();
+            $(this).html(player);
+            $(this).addClass(player);
             winner();
             
         }
@@ -40,7 +40,6 @@ $button.on( "click", function() {
 
 var $boxes = $(".box")
 function reset(){
-
     for (var i = 0 ; i < 9 ; ++i) {
         $boxes.eq(i).html('');
         $boxes.removeClass('X');
@@ -50,93 +49,49 @@ function reset(){
 
 function winner(){
       // X Horizontal win
-    if (document.getElementById("box0").innerHTML === "X" &&
-        document.getElementById("box1").innerHTML === "X" &&
-        document.getElementById("box2").innerHTML === "X"){
-        alert("Winner is X Horizontal!")
+    if ($boxes.eq(0).html() ===  player &&
+        $boxes.eq(1).html() ===  player &&
+        $boxes.eq(2).html() ===  player){
+        alert("Winner is " + player )
         reset()
-    }else if (document.getElementById("box3").innerHTML === "X" &&
-        document.getElementById("box4").innerHTML === "X" &&
-        document.getElementById("box5").innerHTML === "X"){
-        alert("Winner is X Horizontal!")
+    }else if ($boxes.eq(3).html() ===  player &&
+        $boxes.eq(4).html() ===  player &&
+        $boxes.eq(5).html() ===  player){
+        alert("Winner is " + player )
         reset()
-    }else if (document.getElementById("box6").innerHTML === "X" &&
-        document.getElementById("box7").innerHTML === "X" &&
-        document.getElementById("box8").innerHTML === "X"){
-        alert("Winner is X Horizontal!")
+    }else if ($boxes.eq(6).html() ===  player &&
+        $boxes.eq(7).html() ===  player &&
+        $boxes.eq(8).html() ===  player){
+        alert("Winner is " + player )
         reset()
     // X Vert win
-    }else if (document.getElementById("box0").innerHTML === "X" &&
-        document.getElementById("box3").innerHTML === "X" &&
-        document.getElementById("box6").innerHTML === "X"){
-        alert("Winner is X Vertically!")
+    }else if ($boxes.eq(0).html() ===  player &&
+        $boxes.eq(3).html() ===  player &&
+        $boxes.eq(6).html() ===  player){
+        alert("Winner is " + player )
         reset()
-    }else if (document.getElementById("box1").innerHTML === "X" &&
-        document.getElementById("box4").innerHTML === "X" &&
-        document.getElementById("box7").innerHTML === "X"){
-        alert("Winner is X Vertically!")
+    }else if ($boxes.eq(1).html() ===  player &&
+        $boxes.eq(4).html() ===  player &&
+        $boxes.eq(7).html() ===  player){
+        alert("Winner is " + player )
         reset()
-    }else if (document.getElementById("box2").innerHTML === "X" &&
-        document.getElementById("box5").innerHTML === "X" &&
-        document.getElementById("box8").innerHTML === "X"){
-        alert("Winner is X Vertically!")
-        reset()
-    }
-    // 0 Horizontal win
-    else if (document.getElementById("box0").innerHTML === "O" &&
-        document.getElementById("box1").innerHTML === "O" &&
-        document.getElementById("box2").innerHTML === "O"){
-        alert("Winner is 0 Horizontal!")
-        reset()
-    }else if (document.getElementById("box3").innerHTML === "O" &&
-        document.getElementById("box4").innerHTML === "O" &&
-        document.getElementById("box5").innerHTML === "O"){
-        alert("Winner is 0 Horizontal!")
-        reset()
-    }else if (document.getElementById("box6").innerHTML === "O" &&
-        document.getElementById("box7").innerHTML === "O" &&
-        document.getElementById("box8").innerHTML === "O"){
-        alert("Winner is 0 Horizontal!")
-        reset()
-    // Y Vert win
-    }else if (document.getElementById("box0").innerHTML === "O" &&
-        document.getElementById("box3").innerHTML === "O" &&
-        document.getElementById("box6").innerHTML === "O"){
-        alert("Winner is 0 Vertically!")
-        reset()
-    }else if (document.getElementById("box1").innerHTML === "O" &&
-        document.getElementById("box4").innerHTML === "O" &&
-        document.getElementById("box7").innerHTML === "O"){
-        alert("Winner is 0 Vertically!")
-        reset()
-    }else if (document.getElementById("box2").innerHTML === "O" &&
-        document.getElementById("box5").innerHTML === "O" &&
-        document.getElementById("box8").innerHTML === "O"){
-        alert("Winner is O Vertically!")
+    }else if ($boxes.eq(2).html() ===  player &&
+        $boxes.eq(5).html() ===  player &&
+        $boxes.eq().html() ===  player){
+        alert("Winner is " + player )
         reset()
     }
-    // diagonal O
-    else if (document.getElementById("box0").innerHTML === "O" &&
-        document.getElementById("box4").innerHTML === "O" &&
-        document.getElementById("box8").innerHTML === "O"){
-        alert("Winner is 0 diagonal!")
+        // diagonal 
+    else  if ($boxes.eq(0).html() ===  player &&
+        $boxes.eq(4).html() ===  player &&
+        $boxes.eq(8).html() ===  player){
+        alert("Winner is " + player )
         reset()
-    }else if (document.getElementById("box2").innerHTML === "O" &&
-        document.getElementById("box4").innerHTML === "O" &&
-        document.getElementById("box6").innerHTML === "O"){
-        alert("Winner is O diagonal!")
+    }else if ($boxes.eq(2).html() ===  player &&
+        $boxes.eq(4).html() ===  player &&
+        $boxes.eq(6).html() ===  player){
+        alert("Winner is " + player )
         reset()
-    }
-        // diagonal X
-    else if (document.getElementById("box0").innerHTML === "X" &&
-        document.getElementById("box4").innerHTML === "X" &&
-        document.getElementById("box8").innerHTML === "X"){
-        alert("Winner is X diagonal!")
-        reset()
-    }else if (document.getElementById("box2").innerHTML === "X" &&
-        document.getElementById("box4").innerHTML === "X" &&
-        document.getElementById("box6").innerHTML === "X"){
-        alert("Winner is X diagonal!")
         reset()
     }
 
