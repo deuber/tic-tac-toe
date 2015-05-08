@@ -7,24 +7,24 @@ function next() {
     return player; 
 }
 
-
-
 //Set event listeners
-for(var i = 0; i < 9; ++i){
-     var $box = $("#box" + i );
-      $box.on( "click", function() {
+var $boxes = $(".box")
+// IF X or O don't set a winner
+$boxes.each(function(index) {
+      $(this).on( "click", function() {
         if($(this).html()=='X' || $(this).html() =='O'){
             console.log("Already something here!")
         }
-        else {
+        // BUT DO SET A WINNER IF OPEN SQUARE
+        else { 
             var player = next();
             $(this).html(player);
             $(this).addClass(player);
-            winner();
+            winnerIs();
             
         }
     })
-}
+})
 
 
 // CLEARS BOXES WHEN CLEAR BOARD IS RUN
@@ -46,7 +46,8 @@ function reset(){
     })
 }
 
-function winner(){
+// winnerIS
+function winnerIs(){
       // X Horizontal win
     if ($boxes.eq(0).html() ===  player &&
         $boxes.eq(1).html() ===  player &&
